@@ -1,0 +1,14 @@
+.invoice{
+    margin: auto;
+    height: 700px;
+    width: 70%;
+    background-color: gray;
+}
+
+.invoice{
+    display: block;
+}
+
+.invoice h2{
+    float: left;
+}
