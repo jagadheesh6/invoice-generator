@@ -10,7 +10,7 @@ class Form extends Component{
 
 
     state = {
-showInvoice:true
+showInvoice:false
     }
 
      data={
@@ -100,11 +100,97 @@ if(!this.state.showInvoice){
 let invoice=null
 if(this.state.showInvoice){
     invoice=(
-        <div className="invoice">
-            <img src={cat}></img>
-            <span>
-                <h2>Invoice</h2>
-            </span>
+        <div className="invoice-box">
+            <table cellPadding={0} cellSpacing={0}>
+                <tbody><tr className="top">
+                    <td colSpan={2}>
+                        <table>
+                            <tbody><tr>
+                                <td className="title">
+                                    <img src={cat} alt="logo" style={{ width: '100%', maxWidth: '300px' }} />
+                                </td>
+                                <td>
+                       <h1>Invoice</h1>
+                      </td>
+                            </tr>
+                            </tbody></table>
+                    </td>
+                </tr>
+                    <tr className="information">
+                        <td colSpan={2}>
+                            <table>
+                                <tbody><tr>
+                                    <td>
+                                        Invoice To:{this.data.name}<br />
+                        GST No: {this.data.customergst}<br />
+                        Sunnyville, CA 12345
+                      </td>
+                                    <td>
+                                        Invoice Date: {this.data.date}<br />
+                        Invoice No : {this.data.invoice}<br />
+                        GST No: {this.data.customergst}
+                        HSN / SAC Code : {this.data.code}
+                      </td>
+                                </tr>
+                                </tbody></table>
+                        </td>
+                    </tr>
+                    <tr className="heading">
+                        <td>
+                            Payment Method
+              </td>
+                
+                        <td>
+                            Check #
+              </td>
+                    </tr>
+                    <tr className="details">
+                        <td>
+                            Check
+              </td>
+                        <td>
+                            1000
+              </td>
+                    </tr>
+                    <tr className="heading">
+                        <td>
+                            Item
+              </td>
+                        <td>
+                            Price
+              </td>
+                    </tr>
+                    <tr className="item">
+                        <td>
+                            Website design
+              </td>
+                        <td>
+                            $300.00
+              </td>
+                    </tr>
+                    <tr className="item">
+                        <td>
+                            Hosting (3 months)
+              </td>
+                        <td>
+                            $75.00
+              </td>
+                    </tr>
+                    <tr className="item last">
+                        <td>
+                            Domain name (1 year)
+              </td>
+                        <td>
+                            $10.00
+                </td>
+                    </tr>
+                    <tr className="total">
+                        <td />
+                        <td>
+                            Total: $385.00
+                  </td>
+                    </tr>
+                </tbody></table>
         </div>
     )
 }
