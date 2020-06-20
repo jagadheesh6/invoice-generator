@@ -1,4 +1,6 @@
 import React,{Component} from 'react'
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas'
 
 
 import cat from '../assets/cat.jpg'
@@ -48,7 +50,15 @@ this.data=newData
 
 
 download=()=>{
- 
+    const input = document.getElementById('download');
+    html2canvas(input)
+        .then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('2', 'mm', [1000, 500]);
+        pdf.addImage(imgData, 'JPEG', 0, 0);
+        // pdf.output('dataurlnewwindow');
+        pdf.save("download.pdf");
+        })
 }
 
 
@@ -116,7 +126,7 @@ if(this.state.showInvoice){
     invoice=(
         <div className="main-invoice">
             
-        <div className="invoice-box" >
+        <div className="invoice-box" id="download" >
                
             <table cellPadding={0} cellSpacing={0}>
                 <tbody><tr className="top">
