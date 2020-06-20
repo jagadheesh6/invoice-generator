@@ -6,6 +6,10 @@ import cat from '../assets/cat.jpg'
 import '../css/Form.css'
 import '../css/Invoice.css'
 
+
+
+
+
 class Form extends Component{
 
 
@@ -23,6 +27,9 @@ showInvoice:false
          address:""
      }
 
+
+
+
 changeHandler=(event)=>{
 const {value,name}=event.target
 const newData={
@@ -39,9 +46,27 @@ this.data=newData
         console.log(this.data)
     }
 
+
+download=()=>{
+    const c = document.getElementById("invoice")
+    c.addEventListener('click',()=>{
+        console.log("hi")
+    })
+}
+
+
     render(){
 
-
+if(this.state.showInvoice){
+    setTimeout(()=>{
+        var c = document.getElementById("mcanvas");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+        ctx.stroke();
+    },2000)
+   
+}
 
 let form=null
 if(!this.state.showInvoice){
@@ -99,8 +124,12 @@ if(!this.state.showInvoice){
 
 let invoice=null
 if(this.state.showInvoice){
+    
     invoice=(
-        <div className="invoice-box">
+        <div className="main-invoice">
+            
+        <div className="invoice-box" >
+               
             <table cellPadding={0} cellSpacing={0}>
                 <tbody><tr className="top">
                     <td colSpan={2}>
@@ -191,7 +220,13 @@ if(this.state.showInvoice){
                   </td>
                     </tr>
                 </tbody></table>
+               
         </div>
+            
+
+        <button id="button" onClick={this.download}>Download Invoice</button>
+        </div>
+
     )
 }
 
