@@ -48,25 +48,13 @@ this.data=newData
 
 
 download=()=>{
-    const c = document.getElementById("invoice")
-    c.addEventListener('click',()=>{
-        console.log("hi")
-    })
+ 
 }
 
 
     render(){
 
-if(this.state.showInvoice){
-    setTimeout(()=>{
-        var c = document.getElementById("mcanvas");
-        var ctx = c.getContext("2d");
-        ctx.beginPath();
-        ctx.arc(100, 75, 50, 0, 2 * Math.PI);
-        ctx.stroke();
-    },2000)
-   
-}
+
 
 let form=null
 if(!this.state.showInvoice){
